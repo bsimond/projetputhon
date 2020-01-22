@@ -6,21 +6,21 @@ from repertoire_action import *
 
 ## fonction pour afficher la liste
 ## affichage repertoire
-def affichage_repertoire():
-    for ligne in get_rep():
+def affichage_repertoire(repertoire ):
+    for ligne in repertoire:
         print(ligne["nom"], ligne["tel"], ligne["mail"])
 
 
 
 
-def affichage_ajout():
+def affichage_ajout(repertoire):
     nom = input(" entrez nom ")
     numero = input(" entrez numero")
     mail = input(" entre un email")
-    ajouter = ajouter_personne(get_rep(), nom, numero, mail)
+    ajouter = ajouter_personne(repertoire , nom, numero, mail)
     if ajouter:
         print("le contact est enregistré")
-        affichage_repertoire ()
+        affichage_repertoire (repertoire)
     else:
         print("le contact est déjà présent")
 
@@ -36,16 +36,17 @@ while True:
     print(" R pour recherche un nom")
 
     choixuser = (input(" Quel est votre choix : ")).upper()
+    repertoire=get_rep()
 
     if choixuser == "L":
-        affichage_repertoire()
+        affichage_repertoire(repertoire)
 
     elif choixuser == "A":
-        affichage_ajout()
+        affichage_ajout(repertoire)
 
     elif choixuser == "S":
-        affichage_supprimer(get_rep())
-        affichage_repertoire()
+        affichage_supprimer(repertoire)
+        affichage_repertoire(repertoires)
 
     elif choixuser == "R":
         nomrecherche = input(" entrez le nom recherché :")
