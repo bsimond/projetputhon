@@ -1,12 +1,12 @@
 import json
-repertoire = [{"nom": "brice", "tel": "88555666", "mail": "brice@gmail.com"},
-                   {"nom": "marion", "tel": "4557682", "mail": "marion@gmail.com"},
-                   {"nom": "marcin", "tel": "454545", "mail": " marcin@gmail.Com"}]
+# repertoire = [{"nom": "brice", "tel": "88555666", "mail": "brice@gmail.com"},
+#                    {"nom": "marion", "tel": "4557682", "mail": "marion@gmail.com"},
+#                    {"nom": "marcin", "tel": "454545", "mail": " marcin@gmail.Com"}]
 
-fichier = open("repertoire.txt", "w")
-repertoirestr = json.dumps(repertoire)
-fichier.write(repertoirestr)
-fichier.close()
+# fichier = open("repertoire.txt", "w")
+# repertoirestr = json.dumps(repertoire)
+# fichier.write(repertoirestr)
+# fichier.close()
 
 
 

@@ -1,32 +1,35 @@
-from repertoire_action import *
-
-
-
-
+import repertoire_action as action
 
 ## fonction pour afficher la liste
 ## affichage repertoire
-def affichage_repertoire(repertoire ):
-    for ligne in repertoire:
-        print(ligne["nom"], ligne["tel"], ligne["mail"])
+
+
+def affichage_repertoire(repertoire):
+    contact= action.lister_tous_les_contact(repertoire)
+    print(contact)
+
 
 
 
 
 def affichage_ajout(repertoire):
-    nom = input(" entrez nom ")
-    numero = input(" entrez numero")
-    mail = input(" entre un email")
-    ajouter = ajouter_personne(repertoire , nom, numero, mail)
-    if ajouter:
+    nom = input(" entrez nom :  ")
+    numero = input(" entrez numero : ")
+    mail = input(" entre un email : ")
+    resultat_ajouter = action.ajouter_personne(repertoire , nom, numero, mail)
+    if resultat_ajouter:
         print("le contact est enregistré")
         affichage_repertoire (repertoire)
     else:
         print("le contact est déjà présent")
 
 def affichage_supprimer(repertoire):
-    contact_a_supprime = input("entre nom du contact a supprimer")
-    supprimer_personne(repertoire, contact_a_supprime)
+    contact_a_supprime = input("entre nom du contact a supprimer : ")
+    action.supprimer_personne(repertoire, contact_a_supprime)
+
+
+
+
 
 while True:
     # entre choix ultilisateur
@@ -36,7 +39,7 @@ while True:
     print(" R pour recherche un nom")
 
     choixuser = (input(" Quel est votre choix : ")).upper()
-    repertoire=get_rep()
+    repertoire=action.get_rep()
 
     if choixuser == "L":
         affichage_repertoire(repertoire)
@@ -46,11 +49,14 @@ while True:
 
     elif choixuser == "S":
         affichage_supprimer(repertoire)
-        affichage_repertoire(repertoires)
+        affichage_repertoire(repertoire)
+
+
+
 
     elif choixuser == "R":
         nomrecherche = input(" entrez le nom recherché :")
-        results = chercher_personnes(get_rep(), nomrecherche)
+        results = chercher_personnes(repertoire, nomrecherche)
         affichage_repertoire(results)
 
     else:

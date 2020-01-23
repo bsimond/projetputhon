@@ -8,12 +8,14 @@ def chercher_personnes(listerepertoire, nom):
             results.append(contact)
     return results
 
+
 ## fonction pour supprimer un contact
 def supprimer_personne(repertoire, nom):
     for contact in repertoire:
         if nom == contact["nom"]:
             repertoire_utils.del_rep( repertoire, contact)
-
+    if nom != contact ["nom"]:
+            print("le contact n'existe pas")
 
 
 ## fonction pour ajouter un conatct
@@ -28,3 +30,11 @@ def ajouter_personne(listerepertoire, nouveaunom, nouveaunumero , nouveaumail):
 
 def get_rep():
     return repertoire_utils.get_rep()
+
+def lister_tous_les_contact(repertoire):
+    contacts = []
+    for contact in repertoire:
+        contacts.append (contact)
+    return contacts
+
+
